@@ -126,7 +126,18 @@ public class EventRegistrationFrame extends JFrame {
 
         form.add(new JLabel("Class standing:"), left);
         form.add(classStandingBox, right);
-        
+
+// Task 3 - Attendance
+        attendanceGroup.add(inPersonButton);
+        attendanceGroup.add(onlineButton);
+
+        JPanel attendancePanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 5, 0));
+        attendancePanel.add(inPersonButton);
+        attendancePanel.add(onlineButton);
+
+        form.add(new JLabel("Attendance:"), gbc(0, 3));
+        form.add(attendancePanel, gbc(1, 3));
+
         return form;
     }
 
