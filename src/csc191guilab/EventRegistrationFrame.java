@@ -209,20 +209,53 @@ public class EventRegistrationFrame extends JFrame {
     }
 
     private void handleRegister(ActionEvent event) {
-        // TODO Task 7 (10 pts): Validate input.
-        // Required rules:
-        // - Name cannot be blank.
-        // - Email must contain '@' and '.'.
-        // - A class standing must be selected.
-        // - One attendance mode must be selected.
-        // On invalid input, show a JOptionPane error and return.
+        String name = nameField.getText().trim();
+        String email = emailField.getText().trim();
+        String classStanding = (String) classStandingBox.getSelectedItem();
 
-        // TODO Task 8 (5 pts): If valid, copy GUI values into model and
-        // display a formatted summary in summaryArea.
-        // Also update statusLabel with a success message.
+        if (name.isEmpty()) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Name cannot be blank.",
+                    "Registration Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
 
-        summaryArea.setText("Task 7/8: validate the form and build a summary here.");
-    }
+        if (!email.contains("@") || !email.contains(".")) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Please enter a valid email address.",
+                    "Registration Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
+
+        if (classStandingBox.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Please select your class standing.",
+                    "Registration Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
+
+        if (!inPersonButton.isSelected() && !onlineButton.isSelected()) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Please select an attendance mode.",
+                    "Registration Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
+
+        // Task 8 will go here.
+        summaryArea.setText("Task 7 validation passed!");
+      }
 
     private void handleClear(ActionEvent event) {
         // TODO Task 8 (continued): Reset every input component, clear the model,
