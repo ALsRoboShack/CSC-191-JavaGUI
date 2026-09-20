@@ -199,10 +199,13 @@ public class EventRegistrationFrame extends JFrame {
     }
 
     private void wireEvents() {
+        registerButton.addActionListener(this::handleRegister);
+        clearButton.addActionListener(this::handleClear);
         // TODO Task 6 (15 pts): Connect the buttons to event handlers.
         // HINT:
         // registerButton.addActionListener(this::handleRegister);
         // clearButton.addActionListener(this::handleClear);
+        
     }
 
     private void handleRegister(ActionEvent event) {
