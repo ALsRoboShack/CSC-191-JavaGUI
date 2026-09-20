@@ -86,7 +86,7 @@ public class EventRegistrationFrame extends JFrame {
      * TODO Tasks 1-4 are completed primarily inside this method.
      */
     private JPanel buildFormPanel() {
-        JPanel form = new JPanel(new GridLayout());
+        JPanel form = new JPanel(new GridBagLayout());
         form.setBorder(BorderFactory.createTitledBorder("Registration Form"));
 
         // TODO Task 1 (15 pts):
@@ -109,7 +109,24 @@ public class EventRegistrationFrame extends JFrame {
         // Add that panel with label "Workshops".
         // Add registerButton and clearButton at the bottom.
 
-        form.add(new JLabel("Your controls go here."));
+        GridBagConstraints left = gbc(0, 0);
+        GridBagConstraints right = gbc(1, 0);
+
+        form.add(new JLabel("Name:"), left);
+        form.add(nameField, right);
+
+        left = gbc(0, 1);
+        right = gbc(1, 1);
+
+        form.add(new JLabel("Email:"), left);
+        form.add(emailField, right);
+
+        left = gbc(0, 2);
+        right = gbc(1, 2);
+
+        form.add(new JLabel("Class standing:"), left);
+        form.add(classStandingBox, right);
+        
         return form;
     }
 
@@ -179,6 +196,10 @@ public class EventRegistrationFrame extends JFrame {
         c.gridy = y;
         c.insets = new Insets(5, 5, 5, 5);
         c.anchor = GridBagConstraints.WEST;
+        c.fill = GridBagConstraints.NONE;
+        c.weightx = 0;
+        c.weighty = 0;
         return c;
+       
     }
 }
