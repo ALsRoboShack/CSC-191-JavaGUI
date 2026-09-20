@@ -76,16 +76,9 @@ public class EventRegistrationFrame extends JFrame {
     private JPanel buildMainPanel() {
         JPanel panel = new JPanel(new GridLayout(1, 2, 16, 0));
 
-        // TODO Task 1: Replace the placeholder on the left with buildFormPanel().
-        JPanel placeholder = new JPanel(new BorderLayout());
-        placeholder.setBorder(BorderFactory.createTitledBorder("Registration Form"));
-        placeholder.add(
-                new JLabel("Task 1: build and display the form panel", SwingConstants.CENTER),
-                BorderLayout.CENTER
-        );
-
-        panel.add(placeholder);
+        panel.add(buildFormPanel());
         panel.add(buildSummaryPanel());
+        
         return panel;
     }
 
@@ -93,7 +86,8 @@ public class EventRegistrationFrame extends JFrame {
      * TODO Tasks 1-4 are completed primarily inside this method.
      */
     private JPanel buildFormPanel() {
-        JPanel form = new JPanel();
+        JPanel form = new JPanel(new GridLayout());
+        form.setBorder(BorderFactory.createTitledBorder("Registration Form"));
 
         // TODO Task 1 (15 pts):
         // 1. Change the layout to GridBagLayout.
