@@ -253,14 +253,45 @@ public class EventRegistrationFrame extends JFrame {
             return;
         }
 
-        // Task 8 will go here.
-        summaryArea.setText("Task 7 validation passed!");
+        model.setName(name);
+        model.setEmail(email);
+        model.setClassStanding(classStanding);
+        model.setAttendanceMode(
+                inPersonButton.isSelected() ? "In person" : "Online"
+        );
+        model.setJavaWorkshop(javaWorkshopBox.isSelected());
+        model.setAiWorkshop(aiWorkshopBox.isSelected());
+        model.setNetworkingWorkshop(networkingWorkshopBox.isSelected());
+
+        summaryArea.setText(
+                "Name: " + model.getName() + "\n"
+                + "Email: " + model.getEmail() + "\n"
+                + "Class standing: " + model.getClassStanding() + "\n"
+                + "Attendance: " + model.getAttendanceMode() + "\n"
+                + "Workshops:\n"
+                + "  Java GUI Design: " + (model.isJavaWorkshop() ? "Yes" : "No") + "\n"
+                + "  AI for Developers: " + (model.isAiWorkshop() ? "Yes" : "No") + "\n"
+                + "  Computer Networking: " + (model.isNetworkingWorkshop() ? "Yes" : "No")
+        );
+
+        statusLabel.setText("Registration successful!");
       }
 
     private void handleClear(ActionEvent event) {
-        // TODO Task 8 (continued): Reset every input component, clear the model,
-        // restore the summary text, and update statusLabel.
-        summaryArea.setText("Task 8: reset the entire form here.");
+        nameField.setText("");
+        emailField.setText("");
+        classStandingBox.setSelectedIndex(0);
+
+        attendanceGroup.clearSelection();
+
+        javaWorkshopBox.setSelected(false);
+        aiWorkshopBox.setSelected(false);
+        networkingWorkshopBox.setSelected(false);
+
+        model.clear();
+
+        summaryArea.setText("No registration submitted yet.");
+        statusLabel.setText("Form cleared.");
     }
 
     /**
