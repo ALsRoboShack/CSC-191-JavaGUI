@@ -138,6 +138,26 @@ public class EventRegistrationFrame extends JFrame {
         form.add(new JLabel("Attendance:"), gbc(0, 3));
         form.add(attendancePanel, gbc(1, 3));
 
+// Task 4 - Workshops
+        JPanel workshopPanel = new JPanel();
+        workshopPanel.setLayout(new BoxLayout(workshopPanel, BoxLayout.Y_AXIS));
+
+        workshopPanel.add(javaWorkshopBox);
+        workshopPanel.add(aiWorkshopBox);
+        workshopPanel.add(networkingWorkshopBox);
+
+        form.add(new JLabel("Workshops:"), gbc(0, 4));
+        form.add(workshopPanel, gbc(1, 4));
+
+// Buttons
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 5, 0));
+        buttonPanel.add(registerButton);
+        buttonPanel.add(clearButton);
+
+        GridBagConstraints buttonConstraints = gbc(1, 5);
+        buttonConstraints.gridwidth = 1;
+        form.add(buttonPanel, buttonConstraints);
+
         return form;
     }
 
