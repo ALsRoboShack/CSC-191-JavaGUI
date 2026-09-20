@@ -187,6 +187,15 @@ public class EventRegistrationFrame extends JFrame {
         // - Add at least two tooltips with setToolTipText(...).
         // - Make Register the default button with getRootPane().setDefaultButton(...).
         // - Make one additional usability improvement of your choice.
+        nameField.setToolTipText("Enter your full name.");
+        emailField.setToolTipText("Enter a valid email address.");
+
+        getRootPane().setDefaultButton(registerButton);
+
+        classStandingBox.setToolTipText("Select your current class standing.");
+
+        registerButton.setToolTipText("Submit your registration.");
+        clearButton.setToolTipText("Clear all registration information.");
     }
 
     private void wireEvents() {
